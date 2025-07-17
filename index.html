@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEMISTER | IGNOU | BCA_NEW </title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-storage-compat.js"></script>
+
+  <!-- Firebase Initialization -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAIbnC6nfDirCKdc1FudW1SMkLRsJzLARE",
+      authDomain: "studygroupfiles-7b140.firebaseapp.com",
+      projectId: "studygroupfiles-7b140",
+      storageBucket: "studygroupfiles-7b140.appspot.com", // Fixed
+      messagingSenderId: "692950731601",
+      appId: "1:692950731601:web:b139767061a67c9c596170",
+      measurementId: "G-9XH4MW6QKG"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+
+<body>
+  <!-- ─── HEADER ──────────────────────────────────────────────── -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Study Portal</div>
+      <ul class="nav-links">
+        <li><a href="dashboard" target="_blank">Home</a></li>
+        <li><a href="books.html" target="_blank">Books</a></li>
+        <li><a href="projects.html" target="_blank">Projects</a></li>
+        <li><a href="assignments.html" target="_blank">Assignments</a></li>
+        <li><a href="notes.html" target="_blank">Notes</a></li>
+        <li><a href="notifications.html" target="_blank">Notification</a></li>
+         <li><a href="login.html" target="_blank">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ─── BANNER ──────────────────────────────────────────────── -->
+  <div class="banner">
+    <p>👋 Welcome to the Study Portal – keep learning and keep growing! 🚀</p>
+  </div>
+
+  <!-- ─── DASHBOARD SECTION ───────────────────────────────────── -->
+  <section class="dashboard">
+    <div class="dashboard-header">
+      <h2>📊 Dashboard – Course Progress</h2>
+      <p>Track your study progress and stay organized with subject-wise completion stats.</p>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="progress-area">
+        <div class="progress-box">
+          <div class="progress-circle" style="--percent:25;"><span>25%</span></div>
+          <div class="label">C Syllabus</div>
+        </div>
+        <div class="progress-box">
+          <div class="progress-circle" style="--percent:35;"><span>35%</span></div>
+          <div class="label">Python</div>
+        </div>
+        <div class="progress-box">
+          <div class="progress-circle" style="--percent:0;"><span>0%</span></div>
+          <div class="label">C++</div>
+        </div>
+        <div class="progress-box">
+          <div class="progress-circle" style="--percent:0;"><span>0%</span></div>
+          <div class="label">Other</div>
+        </div>
+      </div>
+      <div class="image-area">
+        <img src="img/profile.jpg" alt="Progress Visual" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MEMBER DETAILS SECTION ──────────────────────────────── -->
+  <section class="members">
+    <div class="member-container">
+      <h2>👥 Member Details</h2>
+
+      <div class="member-card">
+        <div class="member-top">
+          <div class="member-icon">👤</div>
+          <div>
+            <h3>Total Members</h3>
+            <p>20</p>
+          </div>
+        </div>
+
+        <div class="member-top">
+          <div class="member-icon">✅</div>
+          <div>
+            <h3>Active Members</h3>
+            <p>15</p>
+          </div>
+        </div>
+
+        <div class="member-info">
+          <p><strong>Offline:</strong> 5 members</p>
+          <p><strong>Most Active Time:</strong> 8 PM IST</p>
+          <p><strong>Avg. Session:</strong> 42 mins</p>
+        </div>
+
+        <button class="show-btn" onclick="openMemberPanel()">Show Members</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── JOIN COMMUNITY SECTION ──────────────────────────────── -->
+  <section class="join-community">
+    <div class="community-container">
+      <h2>🤝 Join Our Community</h2>
+      <p>Fill out the form below to become a member and stay updated with events, projects, and opportunities.</p>
+      <div class="form-frame">
+        <iframe src="https://forms.gle/hD8X82EYMkPp9p499" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DONATE US SECTION ───────────────────────────────────── -->
+  <section class="donate-section">
+    <div class="donate-container">
+      <h2>💸 Donate Resources</h2>
+      <p class="donate-subtitle">
+        Share your notes, assignments, or helpful files with the community. All uploads are visible and downloadable by everyone.
+      </p>
+
+      <div class="upload-box">
+        <label for="uploadFile" class="upload-label">📁 Select File</label>
+        <input type="file" id="uploadFile" hidden />
+        <button class="upload-btn" onclick="uploadToFirebase()">📤 Upload</button>
+      </div>
+
+      <div id="fileList" class="uploaded-files">
+        <!-- Files will be listed here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER (Optional) ───────────────────────────────────── -->
+  <footer>
+    <p>&copy; 2025 Study Portal | All rights reserved.</p>
+  </footer>
+
+  <!-- Your custom script -->
+  <script src="script.js" defer></script>
+</body>
+</html>
